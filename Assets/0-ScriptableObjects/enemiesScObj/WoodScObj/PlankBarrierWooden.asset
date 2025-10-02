@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81178e8f4d5712499e97c9fa824d700, type: 3}
+  m_Name: PlankBarrierWooden
+  m_EditorClassIdentifier: 
+  objectType: PlankBarrierWooden
+  maxHealth: 3
+  coinValue: 2
+  resourceType: 2
+  coinAnimType: 2
+  poolKey: PlankBarrierWooden
+  prefab: {fileID: 442433256855191373, guid: c36fbbc9007f7be4780e0c0319ff3d10, type: 3}
+  initialPoolCount: 20
+  hitEffectKey: FX_Hit_Wood
+  breakEffectKey: FX_Break_Wood
+  impactEffectKey: FX_Impact_Wood
+  hitSound: {fileID: 8300000, guid: 8dc1f3a6819981247a117355126e8102, type: 3}
+  breakSound: {fileID: 8300000, guid: 2d5e245fd80e78d4389e544e07a2793d, type: 3}
+  impactSound: {fileID: 8300000, guid: d619183d247a75141ba2087d1c74da9b, type: 3}
+  movementType: 0
+  moveSpeed: 5

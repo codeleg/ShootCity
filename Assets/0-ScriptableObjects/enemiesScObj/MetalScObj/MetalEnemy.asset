@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81178e8f4d5712499e97c9fa824d700, type: 3}
+  m_Name: MetalEnemy
+  m_EditorClassIdentifier: 
+  objectType: Metal
+  maxHealth: 5
+  coinValue: 5
+  resourceType: 0
+  coinAnimType: 0
+  poolKey: Metal
+  prefab: {fileID: 8118877674752902205, guid: 5fd1517c233f8ea45aa05e1fa3de9956, type: 3}
+  initialPoolCount: 10
+  hitEffectKey: FX_Hit_Metal
+  breakEffectKey: FX_Break_Metal
+  impactEffectKey: FX_Impact_Metal
+  hitSound: {fileID: 8300000, guid: 95ab6911696199643a83de4c5da9cc6a, type: 3}
+  breakSound: {fileID: 8300000, guid: 3ad8b7a353e598941bd117fc7cbf7ef0, type: 3}
+  impactSound: {fileID: 8300000, guid: fb57eab8ffd772547a61d593ce2c984c, type: 3}
+  movementType: 5
+  moveSpeed: 1

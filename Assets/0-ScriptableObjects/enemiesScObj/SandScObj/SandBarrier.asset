@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81178e8f4d5712499e97c9fa824d700, type: 3}
+  m_Name: SandBarrier
+  m_EditorClassIdentifier: 
+  objectType: SandBarrier
+  maxHealth: 3
+  coinValue: 3
+  resourceType: 0
+  coinAnimType: 0
+  poolKey: SandBarrier
+  prefab: {fileID: 1303305255331892912, guid: badeaf7d7a647034e899d69a4d550afe, type: 3}
+  initialPoolCount: 10
+  hitEffectKey: FX_Hit_Sand
+  breakEffectKey: FX_Break_Sand
+  impactEffectKey: FX_Impact_Sand
+  hitSound: {fileID: 8300000, guid: e5752ee72cec9c64bb5c02ccb45d2cc5, type: 3}
+  breakSound: {fileID: 8300000, guid: 17a7c1e96ab03df4d8f22c9d4cbdaef6, type: 3}
+  impactSound: {fileID: 8300000, guid: fb57eab8ffd772547a61d593ce2c984c, type: 3}
+  movementType: 0
+  moveSpeed: 2

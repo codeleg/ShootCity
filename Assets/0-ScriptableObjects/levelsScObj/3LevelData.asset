@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edf1f64e98eb6ab4dbffab448bdafed4, type: 3}
+  m_Name: 3LevelData
+  m_EditorClassIdentifier: 
+  levelNumber: 3
+  durationSeconds: 40
+  totalEnemies: 28
+  requiredKills: 6
+  spawnPerSecond: 0.33
+  enemyBaseSpeed: 0.8
+  spawnRules:
+  - objectData: {fileID: 11400000, guid: 11cb4de446bf1b4439e1a19232154391, type: 2}
+    spawnChance: 2
+  - objectData: {fileID: 11400000, guid: 29657b08d20fc414e8bac12a76b13057, type: 2}
+    spawnChance: 5
+  - objectData: {fileID: 11400000, guid: a66e3b7d71cb21249951d78f13257cea, type: 2}
+    spawnChance: 2
+  - objectData: {fileID: 11400000, guid: cf9437a95f045db48ba803d1026b4839, type: 2}
+    spawnChance: 3
+  - objectData: {fileID: 11400000, guid: ef04508a1f6cd504b862b7940279addb, type: 2}
+    spawnChance: 3
+  spawnPoints:
+  - {fileID: 6011597807628855683, guid: cbc208b8c92a0194f9d69340d6a7ad67, type: 3}
+  - {fileID: 3103823034566618920, guid: 2e9b6f66191395848b84d0bc4e5e0cdb, type: 3}
+  - {fileID: 5190745081196046247, guid: fae5b10b18fe0e040b5c9401c9c0c64d, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 4da298b932b684b91a2c626a1f9d6d13, type: 3}
+  towers: []

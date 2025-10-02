@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81178e8f4d5712499e97c9fa824d700, type: 3}
+  m_Name: WallStone
+  m_EditorClassIdentifier: 
+  objectType: WallStone
+  maxHealth: 5
+  coinValue: 5
+  resourceType: 3
+  coinAnimType: 3
+  poolKey: WallStone
+  prefab: {fileID: 2131415530302964984, guid: df1aa6a9485070c48a03271bfb3a4dc5, type: 3}
+  initialPoolCount: 200
+  hitEffectKey: FX_Hit_Sand
+  breakEffectKey: FX_Break_Sand
+  impactEffectKey: FX_Impact_Sand
+  hitSound: {fileID: 8300000, guid: 6cac541cb5c6c2c4d9a4483cd0438870, type: 3}
+  breakSound: {fileID: 8300000, guid: 735016866204c924195a6d01c16154a1, type: 3}
+  impactSound: {fileID: 0}
+  movementType: 0
+  moveSpeed: 3
