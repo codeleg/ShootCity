@@ -4,34 +4,29 @@ using System.Collections.Generic;
 
 public class GlobalGCTracker : MonoBehaviour
 {
-    private Dictionary<string, long> lastAllocPerScript = new Dictionary<string, long>();
+    private long lastGCSize;
+    private float checkInterval = 0.5f;
+    private float timer;
+
+    void Start()
+    {
+        lastGCSize = Profiler.GetMonoUsedSizeLong();
+    }
 
     void Update()
     {
-        // Sahnede aktif olan tüm MonoBehaviour'larý bul
-        MonoBehaviour[] behaviours = FindObjectsOfType<MonoBehaviour>();
+        timer += Time.unscaledDeltaTime;
+        if (timer < checkInterval) return; // her 0.5 sn'de bir ölç
+        timer = 0f;
 
-        foreach (var behaviour in behaviours)
+        long current = Profiler.GetMonoUsedSizeLong();
+        long diff = current - lastGCSize;
+
+        if (diff > 0)
         {
-            if (behaviour == null) continue;
-
-            string scriptName = behaviour.GetType().Name;
-
-            // Þu anki memory kullanýmý
-            long currentAlloc = Profiler.GetMonoUsedSizeLong();
-
-            // Bu script için son kaydý al
-            long lastAlloc = lastAllocPerScript.ContainsKey(scriptName) ? lastAllocPerScript[scriptName] : currentAlloc;
-
-            long diff = currentAlloc - lastAlloc;
-
-            if (diff > 0)
-            {
-                Debug.Log($"[GC Alloc] {scriptName} bu framede {diff} byte GC oluþturdu.");
-            }
-
-            // Güncelle
-            lastAllocPerScript[scriptName] = currentAlloc;
+            Debug.Log($"[GC Alloc] Son {checkInterval}s içinde {diff} byte oluþtu.");
         }
+
+        lastGCSize = current;
     }
 }
