@@ -4,29 +4,28 @@ using System.Collections.Generic;
 
 public class GlobalGCTracker : MonoBehaviour
 {
-    private long lastGCSize;
-    private float checkInterval = 0.5f;
+    private long lastAlloc;
     private float timer;
+    private const float checkInterval = 0.5f;
 
     void Start()
     {
-        lastGCSize = Profiler.GetMonoUsedSizeLong();
+        lastAlloc = Profiler.GetMonoUsedSizeLong();
+        Debug.Log($"[GCTracker] Baþlangýç: {lastAlloc / 1024} KB");
     }
 
     void Update()
     {
         timer += Time.unscaledDeltaTime;
-        if (timer < checkInterval) return; // her 0.5 sn'de bir ölç
+        if (timer < checkInterval) return;
         timer = 0f;
 
         long current = Profiler.GetMonoUsedSizeLong();
-        long diff = current - lastGCSize;
+        long diff = current - lastAlloc;
 
         if (diff > 0)
-        {
-            Debug.Log($"[GC Alloc] Son {checkInterval}s içinde {diff} byte oluþtu.");
-        }
+            Debug.Log($"[GCTracker] Son {checkInterval}s içinde +{diff / 1024f:F1} KB arttý");
 
-        lastGCSize = current;
+        lastAlloc = current;
     }
 }
