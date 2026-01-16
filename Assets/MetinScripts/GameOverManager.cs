@@ -2,10 +2,19 @@
 
 public class GameOverManager : MonoBehaviour
 {
-    public static GameOverManager Instance;
     [SerializeField] private GameObject gameOverPanel;
 
-    void Awake() => Instance = this;
+    public static GameOverManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     /// <summary>
     /// Oyuncunun öldüğü anda GameOver panelini açar.
@@ -43,52 +52,42 @@ public class GameOverManager : MonoBehaviour
     /// </summary>
     private void DoRestart()
     {
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(false);
+        gameOverPanel?.SetActive(false);
 
         Time.timeScale = 1f;
-        GameSessionManager.Instance.ResetGame();
 
-        HandleCursor(false); // Restart sonrası cursor tekrar gizlensin (PC için)
+        GameSessionManager.Instance.ResetGame();
+        LevelManager.Instance?.RestartLevel();
+
+        HandleCursor(false);
     }
+
 
     /// <summary>
     /// Continue butonundan çağrılır. Ödüllü reklam izlenirse full canla devam edilir.
     /// </summary>
-   
+
     public void ContinueGame()
     {
-        if (AdsManager.Instance != null)
-        {
-            AdsManager.Instance.ShowRewarded(() =>
-            {
-                var player = FindObjectOfType<PlayerHealth>();
-                if (player != null)
-                {
-                    player.ResetHealth(); // canı fulle
-
-                }
-
-                if (gameOverPanel != null)
-                    gameOverPanel.SetActive(false);
-
-                // Timer’ı sıfırla, ama düşmanları temizleme
-                LevelManager.Instance?.ResetTimer();
-
-                if (gameOverPanel != null)
-                    gameOverPanel.SetActive(false);
-
-                Time.timeScale = 1f; // hız normale dönmeli
-               
-            });
-  
-        }
-        else
+        if (AdsManager.Instance == null)
         {
             Debug.LogWarning("AdsManager yok, continue yapılamıyor.");
+            return;
         }
-    }
 
+        Time.timeScale = 1f; // reklamdan ÖNCE aç
+
+        AdsManager.Instance.ShowRewarded(() =>
+        {
+            var player = Object.FindAnyObjectByType<PlayerHealth>();
+            player?.ResetHealth();
+
+            gameOverPanel?.SetActive(false);
+            LevelManager.Instance?.ResetTimer();
+
+            HandleCursor(false);
+        });
+    }
 
     /// <summary>
     /// GameOver panelini kapatır (dışarıdan erişim için).

@@ -114,16 +114,20 @@ public class LevelManager : MonoBehaviour
     {
         if (_current == null) return;
 
+        StopAllCoroutines(); // 🔥 ÇOK ÖNEMLİ
+
         _spawnedCount = 0;
         _killedCount = 0;
         _objectiveComplete = false;
         _timeLeft = _current.durationSeconds;
 
         ObjectPoolManager.Instance.ResetAllPools();
+        EnemySpawner.Instance?.StopSpawning();
+        EnemySpawner.Instance?.ResetSpawnAccumulator();
 
-        PlayerUI.Instance?.ShowMessage("Görev başarısız! Yeniden başlıyor...");
-        LoadLevel(_idx);
+        LoadLevel(startLevelIndex);
     }
+
 
     public void NextLevel()
     {
