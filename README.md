@@ -1,4 +1,4 @@
-Detaylar
+Detaylar : 
 Oyuncular, uzayın derinliklerinde sürekli artan düşman dalgalarıyla savaşarak mümkün olduğunca uzun süre hayatta kalmaya çalışır.
 16 farklı düşman tipi, çeşitli hareket ve saldırı tarzlarıyla oyuncuya meydan okur.
 ScriptableObject tabanlı sistem sayesinde yeni düşmanlar ve efektler kolayca oyuna eklenebilir.
